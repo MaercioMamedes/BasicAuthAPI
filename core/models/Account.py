@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 class Account(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    balance = models.DecimalField('saldo', max_digits=10, decimal_places=2)
+    balance = models.DecimalField('saldo', max_digits=10, decimal_places=2, default=0)
 
     def to_withdraw(self, value):
         if self.balance > value:
