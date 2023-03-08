@@ -7,13 +7,13 @@ class Account(models.Model):
     balance = models.DecimalField('saldo', max_digits=10, decimal_places=2, default=0)
 
     def to_withdraw(self, value):
-        if self.balance > value:
-            self.balance -= value
 
         if value < 0:
             raise ValueError('O valor do saque não pode ser negativo')
-        else:
+        elif self.balance < value:
             raise ValueError('Saldo insufiente')
+        else:
+            self.balance -= value
 
     def to_deposit(self, value):
 

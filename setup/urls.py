@@ -7,6 +7,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include(router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    path('teste/',OperationView.as_view(), name='teste'),
+    path('caixa/',OperationView.as_view(), name='caixa'),
 
 ]

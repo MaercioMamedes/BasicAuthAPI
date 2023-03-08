@@ -4,5 +4,11 @@ from django.contrib.auth.models import User
 
 
 class UserAppView(viewsets.ModelViewSet):
-    queryset = User.objects.all()
     serializer_class = UserSerializer
+
+
+    def get_queryset(self):
+
+        return User.objects.filter(id=self.request.user.id)
+
+

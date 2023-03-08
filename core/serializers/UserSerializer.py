@@ -6,8 +6,11 @@ from core.models import Account
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['first_name','username', 'password']
-        extra_kwargs = {'password':{'write_only': True}}
+        fields = ['id', 'first_name','username', 'password']
+        extra_kwargs = {
+            'password':{'write_only': True},
+            'id': {'read_only': True},
+            }
 
     def create(self, validated_data):
         """Método para criar usuário"""
